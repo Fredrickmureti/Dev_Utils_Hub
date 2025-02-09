@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary: #4f46e5;
+  --secondary: #6366f1;
+  --accent: #818cf8;
+  --rgb-effect: #4f46e5;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* RGB effect animations */
+@keyframes rgb-shadow {
+  0% { box-shadow: 0 0 10px var(--rgb-effect); }
+  50% { box-shadow: 0 0 20px var(--rgb-effect); }
+  100% { box-shadow: 0 0 10px var(--rgb-effect); }
+}
+
+.rgb-animate {
+  animation: rgb-shadow 2s infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Button hover effects */
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* Input focus effects */
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 0 2px var(--primary);
+}
